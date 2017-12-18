@@ -1,0 +1,25 @@
+STEPS:
+1) Import Code in Eclipse as "Existing Project in Workspace"
+2) Add the Jars provided in the project build path
+3) Configure Jboss 7.1 with the config file provided in eclipse.
+4) Add the jboss hornetq client in build path
+5) Right click -> properties -> Deployment assembly. Add all newly added Java Build path entries here.
+6) Configure Mysql and add its connection in eclipse.
+7) Configure Jboss 7.1 and provide the hostname of your System
+8) Deploy the resource on Jboss server.
+9) You can access project using http://<SystemIp>:8080/LookupWeb/
+
+======OR=======
+1) I have provided a WAR file of the same code. Just deploy the WAR on Jboss 7.1 with the configuration file "standalone-full-ha.xml" provided in the "Lookup\Configuration\Jboss 7.1 config" folder.
+To do this perform the following steps:
+a) Navigate to "\jboss-as-7.1.0.Final\standalone\configuration"
+b) Paste the file "standalone-full-ha.xml" provided in the "Lookup\Configuration\Jboss 7.1 config" folder to the path in step b.
+c) Navigate to "\jboss-as-7.1.0.Final\standalone\deployments"
+d) Copy "LookupWeb.War in the above folder and create file "LookupWeb.war.dodeploy"
+e) Navigate to "jboss-as-7.1.0.Final\bin"
+f) Run the following command
+standalone.bat -c standalone-full-ha.xml -b <YourSystemIp>
+
+2) Then you may run queries using REST client like POSTMAN or SoapUI.
+
+														
