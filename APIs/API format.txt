@@ -1,0 +1,370 @@
+Following are the APIs provided
+1) http://192.168.0.102:8080/LookupWeb/List
+			OUTPUT:
+			[
+			  {
+			    "id": 1,
+			    "name": "Pizza Hut",
+			    "category": "Pizza",
+			    "rating": 3.7,
+			    "latitude": "12.926266",
+			    "longitude": "77.517784"
+			  },
+			  {
+			    "id": 2,
+			    "name": "Western Union",
+			    "category": "Bank",
+			    "rating": 2,
+			    "latitude": "18.577562",
+			    "longitude": "73.7688946"
+			  },
+			  {
+			    "id": 3,
+			    "name": "Toit",
+			    "category": "Brewpub",
+			    "rating": 4.4,
+			    "latitude": "12.979239",
+			    "longitude": "77.6383966"
+			  },
+			  {
+			    "id": 4,
+			    "name": "Courtyard",
+			    "category": "Hotel",
+			    "rating": 4.4,
+			    "latitude": "13.0459002",
+			    "longitude": "80.245602"
+			  },
+			  {
+			    "id": 5,
+			    "name": "Goa Aquatics",
+			    "category": "Adventure Sports Center",
+			    "rating": 5,
+			    "latitude": "15.4723016",
+			    "longitude": "73.7249056"
+			  },
+			  {
+			    "id": 6,
+			    "name": "Jaisalmer Fort",
+			    "category": "Tourist Attraction",
+			    "rating": 4.4,
+			    "latitude": "26.903651",
+			    "longitude": "70.8596248"
+			  },
+			  {
+			    "id": 7,
+			    "name": "Ghoomakad",
+			    "category": "Hackerspace",
+			    "rating": 4.9,
+			    "latitude": "32.1984597",
+			    "longitude": "76.3646732"
+			  },
+			  {
+			    "id": 8,
+			    "name": "HasGeek Workshop",
+			    "category": "Hackerspace",
+			    "rating": 4,
+			    "latitude": "12.9609268",
+			    "longitude": "77.6417689"
+			  },
+			  {
+			    "id": 9,
+			    "name": "Barbeque Nation",
+			    "category": "Restaurant",
+			    "rating": 4.2,
+			    "latitude": "12.9609268",
+			    "longitude": "77.6417689"
+			  },
+			  {
+			    "id": 10,
+			    "name": "iPlanet",
+			    "category": "Apple Store",
+			    "rating": 3.5,
+			    "latitude": "12.9702272",
+			    "longitude": "77.6360561"
+			  },
+			  {
+			    "id": 11,
+			    "name": "Apollo Spectra Hospitals",
+			    "category": "Hospital",
+			    "rating": 3,
+			    "latitude": "12.9271311",
+			    "longitude": "77.6063377"
+			  },
+			  {
+			    "id": 12,
+			    "name": "Indian Institute of Management Bangalore",
+			    "category": "Business School",
+			    "rating": 4.6,
+			    "latitude": "12.912931",
+			    "longitude": "77.5965757"
+			  },
+			  {
+			    "id": 13,
+			    "name": "Sub Foreign Post Office",
+			    "category": "Post Office",
+			    "rating": 2,
+			    "latitude": "12.9554321",
+			    "longitude": "77.5867354"
+			  },
+			  {
+			    "id": 14,
+			    "name": "Regional Transport Office",
+			    "category": "State Government Office",
+			    "rating": 1,
+			    "latitude": "19.0162591",
+			    "longitude": "72.8110621"
+			  }
+			]
+2) http://192.168.0.102:8080/LookupWeb/List/Count
+			OUTPUT:
+			{
+			  "count": 14
+			}
+3) http://192.168.0.102:8080/LookupWeb/List/Name
+			INPUT: {"name":"Pizza Hut"}
+			OUTPUT: {
+							  "id": 1,
+							  "name": "Pizza Hut",
+							  "category": "Pizza",
+							  "rating": 3.7,
+							  "latitude": "12.926266",
+							  "longitude": "77.517784"
+							}
+4) http://192.168.0.102:8080/LookupWeb/List/Category/Hackerspace
+		OUTPUT:
+		[
+		  {
+		    "id": 7,
+		    "name": "Ghoomakad",
+		    "category": "Hackerspace",
+		    "rating": 4.9,
+		    "latitude": "32.1984597",
+		    "longitude": "76.3646732"
+		  },
+		  {
+		    "id": 8,
+		    "name": "HasGeek Workshop",
+		    "category": "Hackerspace",
+		    "rating": 4,
+		    "latitude": "12.9609268",
+		    "longitude": "77.6417689"
+		  }
+		]
+5) http://192.168.0.102:8080/LookupWeb/List/Rating/3
+		OUTPUT:
+		[
+		  {
+		    "id": 11,
+		    "name": "Apollo Spectra Hospitals",
+		    "category": "Hospital",
+		    "rating": 3,
+		    "latitude": "12.9271311",
+		    "longitude": "77.6063377"
+		  }
+		]
+6) http://192.168.0.102:8080/LookupWeb/List/Rating/3/Large
+		OUTPUT:
+		[
+		  {
+		    "id": 1,
+		    "name": "Pizza Hut",
+		    "category": "Pizza",
+		    "rating": 3.7,
+		    "latitude": "12.926266",
+		    "longitude": "77.517784"
+		  },
+		  {
+		    "id": 3,
+		    "name": "Toit",
+		    "category": "Brewpub",
+		    "rating": 4.4,
+		    "latitude": "12.979239",
+		    "longitude": "77.6383966"
+		  },
+		  {
+		    "id": 4,
+		    "name": "Courtyard",
+		    "category": "Hotel",
+		    "rating": 4.4,
+		    "latitude": "13.0459002",
+		    "longitude": "80.245602"
+		  },
+		  {
+		    "id": 5,
+		    "name": "Goa Aquatics",
+		    "category": "Adventure Sports Center",
+		    "rating": 5,
+		    "latitude": "15.4723016",
+		    "longitude": "73.7249056"
+		  },
+		  {
+		    "id": 6,
+		    "name": "Jaisalmer Fort",
+		    "category": "Tourist Attraction",
+		    "rating": 4.4,
+		    "latitude": "26.903651",
+		    "longitude": "70.8596248"
+		  },
+		  {
+		    "id": 7,
+		    "name": "Ghoomakad",
+		    "category": "Hackerspace",
+		    "rating": 4.9,
+		    "latitude": "32.1984597",
+		    "longitude": "76.3646732"
+		  },
+		  {
+		    "id": 8,
+		    "name": "HasGeek Workshop",
+		    "category": "Hackerspace",
+		    "rating": 4,
+		    "latitude": "12.9609268",
+		    "longitude": "77.6417689"
+		  },
+		  {
+		    "id": 9,
+		    "name": "Barbeque Nation",
+		    "category": "Restaurant",
+		    "rating": 4.2,
+		    "latitude": "12.9609268",
+		    "longitude": "77.6417689"
+		  },
+		  {
+		    "id": 10,
+		    "name": "iPlanet",
+		    "category": "Apple Store",
+		    "rating": 3.5,
+		    "latitude": "12.9702272",
+		    "longitude": "77.6360561"
+		  },
+		  {
+		    "id": 11,
+		    "name": "Apollo Spectra Hospitals",
+		    "category": "Hospital",
+		    "rating": 3,
+		    "latitude": "12.9271311",
+		    "longitude": "77.6063377"
+		  },
+		  {
+		    "id": 12,
+		    "name": "Indian Institute of Management Bangalore",
+		    "category": "Business School",
+		    "rating": 4.6,
+		    "latitude": "12.912931",
+		    "longitude": "77.5965757"
+		  }
+		]
+7) http://192.168.0.102:8080/LookupWeb/List/Rating/3/Small
+		OUTPUT:
+		[
+		  {
+		    "id": 2,
+		    "name": "Western Union",
+		    "category": "Bank",
+		    "rating": 2,
+		    "latitude": "18.577562",
+		    "longitude": "73.7688946"
+		  },
+		  {
+		    "id": 11,
+		    "name": "Apollo Spectra Hospitals",
+		    "category": "Hospital",
+		    "rating": 3,
+		    "latitude": "12.9271311",
+		    "longitude": "77.6063377"
+		  },
+		  {
+		    "id": 13,
+		    "name": "Sub Foreign Post Office",
+		    "category": "Post Office",
+		    "rating": 2,
+		    "latitude": "12.9554321",
+		    "longitude": "77.5867354"
+		  },
+		  {
+		    "id": 14,
+		    "name": "Regional Transport Office",
+		    "category": "State Government Office",
+		    "rating": 1,
+		    "latitude": "19.0162591",
+		    "longitude": "72.8110621"
+		  }
+		]
+8) http://192.168.0.102:8080/LookupWeb/List/Category/Hackerspace/Rating/4
+		OUTPUT:
+		[
+		  {
+		    "id": 8,
+		    "name": "HasGeek Workshop",
+		    "category": "Hackerspace",
+		    "rating": 4,
+		    "latitude": "12.9609268",
+		    "longitude": "77.6417689"
+		  }
+		]
+9) http://192.168.0.102:8080/LookupWeb/List/Category/Hackerspace/Rating/4/Large
+		OUTPUT:
+		[
+		  {
+		    "id": 7,
+		    "name": "Ghoomakad",
+		    "category": "Hackerspace",
+		    "rating": 4.9,
+		    "latitude": "32.1984597",
+		    "longitude": "76.3646732"
+		  },
+		  {
+		    "id": 8,
+		    "name": "HasGeek Workshop",
+		    "category": "Hackerspace",
+		    "rating": 4,
+		    "latitude": "12.9609268",
+		    "longitude": "77.6417689"
+		  }
+		]
+10) http://192.168.0.102:8080/LookupWeb/List/Category/Hackerspace/Rating/4/Small
+		OUTPUT:
+		[
+		  {
+		    "id": 8,
+		    "name": "HasGeek Workshop",
+		    "category": "Hackerspace",
+		    "rating": 4,
+		    "latitude": "12.9609268",
+		    "longitude": "77.6417689"
+		  }
+		]
+11) http://192.168.0.102:8080/LookupWeb/List/Lat/18.577562
+		OUTPUT:
+		[
+		  {
+		    "id": 2,
+		    "name": "Western Union",
+		    "category": "Bank",
+		    "rating": 2,
+		    "latitude": "18.577562",
+		    "longitude": "73.7688946"
+		  }
+		]
+12) http://192.168.0.102:8080/LookupWeb/List/Long/73.7688946
+		OUTPUT:
+		[
+		  {
+		    "id": 2,
+		    "name": "Western Union",
+		    "category": "Bank",
+		    "rating": 2,
+		    "latitude": "18.577562",
+		    "longitude": "73.7688946"
+		  }
+		]
+13) http://192.168.0.102:8080/LookupWeb/List/LatLong/12.926266/77.517784
+		OUTPUT:
+		{
+		  "id": 1,
+		  "name": "Pizza Hut",
+		  "category": "Pizza",
+		  "rating": 3.7,
+		  "latitude": "12.926266",
+		  "longitude": "77.517784"
+		}			
