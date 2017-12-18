@@ -8,85 +8,75 @@ import com.lookup.dao.IPlacesDao;
 import com.lookup.entity.Places;
 
 public class PlacesService implements IPlacesService {
-	
-	@Autowired(required=true)
+
+	@Autowired(required = true)
 	IPlacesDao daoObj;
-	
+
 	@Override
-	public List<Places> getAllPlaces()
-	{
+	public List<Places> getAllPlaces() {
 		List<Places> placeList = null;
 		placeList = daoObj.getAllPlaces();
 		return placeList;
 	}
-	
+
 	@Override
-	public int getPlacesCount()
-	{
+	public int getPlacesCount() {
 		int count = 0;
-		count = (int)daoObj.getPlacesCount();
+		count = (int) daoObj.getPlacesCount();
 		return count;
 	}
-	
+
 	@Override
-	public Places getPlaceByName(String name)
-	{
+	public Places getPlaceByName(String name) {
 		Places place = null;
 		place = daoObj.getPlaceByName(name);
 		return place;
 	}
-	
+
 	@Override
-	public List<Places> getPlaceByCategory(String category)
-	{
+	public List<Places> getPlaceByCategory(String category) {
 		List<Places> placeList = null;
 		placeList = daoObj.getPlaceByCategory(category);
 		return placeList;
 	}
-	
+
 	@Override
-	public List<Places> getPlaceByRating(float rating)
-	{
+	public List<Places> getPlaceByRating(float rating) {
 		List<Places> placeList = null;
 		placeList = daoObj.getPlaceByRating(rating);
 		return placeList;
 	}
-	
+
 	@Override
-	public List<Places> getPlaceByRatingLarge(float rating)
-	{
+	public List<Places> getPlaceByRatingLarge(float rating) {
 		List<Places> placeList = null;
 		placeList = daoObj.getPlaceByRatingLarge(rating);
 		return placeList;
 	}
-	
+
 	@Override
-	public List<Places> getPlaceByRatingSmall(float rating)
-	{
+	public List<Places> getPlaceByRatingSmall(float rating) {
 		List<Places> placeList = null;
 		placeList = daoObj.getPlaceByRatingSmall(rating);
 		return placeList;
 	}
-	
+
 	@Override
-	public List<Places> getPlaceByCategoryRating(String category, float rating)
-	{
+	public List<Places> getPlaceByCategoryRating(String category, float rating) {
 		List<Places> placeList = null;
 		placeList = daoObj.getPlaceByCategoryRating(category, rating);
 		return placeList;
 	}
-	
+
 	@Override
-	public List<Places> getPlaceByCategoryRatingLarge(String category, float rating)
-	{
+	public List<Places> getPlaceByCategoryRatingLarge(String category, float rating) {
 		List<Places> placeList = null;
 		placeList = daoObj.getPlaceByCategoryRatingLarge(category, rating);
 		return placeList;
 	}
-	
+
 	@Override
-	public List<Places> getPlaceByCategoryRatingSmall(String category, float rating)
-	{
+	public List<Places> getPlaceByCategoryRatingSmall(String category, float rating) {
 		List<Places> placeList = null;
 		placeList = daoObj.getPlaceByCategoryRatingSmall(category, rating);
 		return placeList;

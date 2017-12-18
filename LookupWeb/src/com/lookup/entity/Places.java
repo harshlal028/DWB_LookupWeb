@@ -8,37 +8,39 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 /**
  * Places class containg various place details
+ * 
  * @author Harsh
  *
  */
 @Entity
 @Table(name = "places")
 public class Places implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = true)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", updatable = true)
 	private int id;
-	
+
 	@Column(name = "name", updatable = true)
 	private String name;
-	
+
 	@Column(name = "category", updatable = true)
 	private String category;
-	
+
 	@Column(name = "rating", updatable = true)
 	private float rating;
-	
+
 	@Column(name = "latitude", updatable = true)
 	private String latitude;
-	
+
 	@Column(name = "longitude", updatable = true)
 	private String longitude;
-	
+
 	public Places() {
 	}
 
@@ -90,5 +92,4 @@ public class Places implements Serializable {
 		this.longitude = longitude;
 	}
 
-	
 }

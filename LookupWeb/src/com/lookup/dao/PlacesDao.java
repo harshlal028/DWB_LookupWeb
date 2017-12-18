@@ -9,258 +9,200 @@ import javax.persistence.Persistence;
 import com.lookup.entity.Places;
 
 public class PlacesDao implements IPlacesDao {
-	
+
 	public PlacesDao() {
-		
+
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Places> getAllPlaces() throws IllegalStateException
-	{
+	public List<Places> getAllPlaces() throws IllegalStateException {
 		List<Places> placesList = null;
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ANSPersistence");
 		EntityManager em = emf.createEntityManager();
 		String query = "select s from Places s";
-		try
-		{
+		try {
 			placesList = em.createQuery(query).getResultList();
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Exception in executing getAllPlaces Query");
-		}
-		finally
-		{
+		} finally {
 			em.close();
 			emf.close();
 		}
-		return(placesList);
+		return (placesList);
 	}
-	
 
 	@Override
-	public long getPlacesCount() throws IllegalStateException
-	{
+	public long getPlacesCount() throws IllegalStateException {
 		long count = 0;
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ANSPersistence");
 		EntityManager em = emf.createEntityManager();
 		String query = "select count(s) from Places s";
-		try
-		{
+		try {
 			count = (long) em.createQuery(query).getSingleResult();
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Exception in executing getPlacesCount Query");
-		}
-		finally
-		{
+		} finally {
 			em.close();
 			emf.close();
 		}
-		return(count);
+		return (count);
 	}
-	
+
 	@Override
-	public Places getPlaceByName(String name) throws IllegalStateException
-	{
+	public Places getPlaceByName(String name) throws IllegalStateException {
 		Places place = null;
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ANSPersistence");
 		EntityManager em = emf.createEntityManager();
 		String query = "select s from Places s where s.name = :name";
-		try
-		{
+		try {
 			place = (Places) em.createQuery(query).setParameter("name", name).getSingleResult();
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Exception in executing getPlaceByName Query");
-		}
-		finally
-		{
+		} finally {
 			em.close();
 			emf.close();
 		}
-		return(place);
+		return (place);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Places> getPlaceByCategory(String category) throws IllegalStateException
-	{
+	public List<Places> getPlaceByCategory(String category) throws IllegalStateException {
 		List<Places> placesList = null;
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ANSPersistence");
 		EntityManager em = emf.createEntityManager();
 		String query = "select s from Places s where s.category = :category";
-		try
-		{
+		try {
 			placesList = em.createQuery(query).setParameter("category", category).getResultList();
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Exception in executing getPlaceByCategory Query");
-		}
-		finally
-		{
+		} finally {
 			em.close();
 			emf.close();
 		}
-		return(placesList);
+		return (placesList);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Places> getPlaceByRating(float rating) throws IllegalStateException
-	{
+	public List<Places> getPlaceByRating(float rating) throws IllegalStateException {
 		List<Places> placesList = null;
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ANSPersistence");
 		EntityManager em = emf.createEntityManager();
 		String query = "select s from Places s where format(s.rating,1) = format(:rating,1)";
-		try
-		{
+		try {
 			placesList = em.createQuery(query).setParameter("rating", rating).getResultList();
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Exception in executing getPlaceByRating Query");
-		}
-		finally
-		{
+		} finally {
 			em.close();
 			emf.close();
 		}
-		return(placesList);
+		return (placesList);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Places> getPlaceByRatingLarge(float rating) throws IllegalStateException
-	{
+	public List<Places> getPlaceByRatingLarge(float rating) throws IllegalStateException {
 		List<Places> placesList = null;
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ANSPersistence");
 		EntityManager em = emf.createEntityManager();
 		String query = "select s from Places s where format(s.rating,1) >= format(:rating,1)";
-		try
-		{
+		try {
 			placesList = em.createQuery(query).setParameter("rating", rating).getResultList();
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Exception in executing getPlaceByRatingLarge Query");
-		}
-		finally
-		{
+		} finally {
 			em.close();
 			emf.close();
 		}
-		return(placesList);
+		return (placesList);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Places> getPlaceByRatingSmall(float rating) throws IllegalStateException
-	{
+	public List<Places> getPlaceByRatingSmall(float rating) throws IllegalStateException {
 		List<Places> placesList = null;
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ANSPersistence");
 		EntityManager em = emf.createEntityManager();
 		String query = "select s from Places s where format(s.rating,1) <= format(:rating,1)";
-		try
-		{
+		try {
 			placesList = em.createQuery(query).setParameter("rating", rating).getResultList();
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Exception in executing getPlaceByRatingSmall Query");
-		}
-		finally
-		{
+		} finally {
 			em.close();
 			emf.close();
 		}
-		return(placesList);
+		return (placesList);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Places> getPlaceByCategoryRating(String category, float rating) throws IllegalStateException
-	{
+	public List<Places> getPlaceByCategoryRating(String category, float rating) throws IllegalStateException {
 		List<Places> placesList = null;
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ANSPersistence");
 		EntityManager em = emf.createEntityManager();
 		String query = "select s from Places s where s.category =:category AND format(s.rating,1) = format(:rating,1)";
-		try
-		{
-			placesList = em.createQuery(query).setParameter("category", category).setParameter("rating", rating).getResultList();
-		}
-		catch(Exception e)
-		{
+		try {
+			placesList = em.createQuery(query).setParameter("category", category).setParameter("rating", rating)
+					.getResultList();
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Exception in executing getPlaceByCategoryRating Query");
-		}
-		finally
-		{
+		} finally {
 			em.close();
 			emf.close();
 		}
-		return(placesList);
+		return (placesList);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Places> getPlaceByCategoryRatingLarge(String category, float rating) throws IllegalStateException
-	{
+	public List<Places> getPlaceByCategoryRatingLarge(String category, float rating) throws IllegalStateException {
 		List<Places> placesList = null;
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ANSPersistence");
 		EntityManager em = emf.createEntityManager();
 		String query = "select s from Places s where s.category =:category AND format(s.rating,1) >= format(:rating,1)";
-		try
-		{
-			placesList = em.createQuery(query).setParameter("category", category).setParameter("rating", rating).getResultList();
-		}
-		catch(Exception e)
-		{
+		try {
+			placesList = em.createQuery(query).setParameter("category", category).setParameter("rating", rating)
+					.getResultList();
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Exception in executing getAllPlaces Query");
-		}
-		finally
-		{
+		} finally {
 			em.close();
 			emf.close();
 		}
-		return(placesList);
+		return (placesList);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Places> getPlaceByCategoryRatingSmall(String category, float rating) throws IllegalStateException
-	{
+	public List<Places> getPlaceByCategoryRatingSmall(String category, float rating) throws IllegalStateException {
 		List<Places> placesList = null;
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ANSPersistence");
 		EntityManager em = emf.createEntityManager();
 		String query = "select s from Places s where s.category =:category AND format(s.rating,1) <= format(:rating,1)";
-		try
-		{
-			placesList = em.createQuery(query).setParameter("category", category).setParameter("rating", rating).getResultList();
-		}
-		catch(Exception e)
-		{
+		try {
+			placesList = em.createQuery(query).setParameter("category", category).setParameter("rating", rating)
+					.getResultList();
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Exception in executing getPlaceByCategoryRatingSmall Query");
-		}
-		finally
-		{
+		} finally {
 			em.close();
 			emf.close();
 		}
-		return(placesList);
+		return (placesList);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -270,21 +212,16 @@ public class PlacesDao implements IPlacesDao {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ANSPersistence");
 		EntityManager em = emf.createEntityManager();
 		String query = "select s from Places s where s.latitude = :latitude";
-		try
-		{
+		try {
 			placesList = em.createQuery(query).setParameter("latitude", lattitude).getResultList();
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Exception in executing getPlaceByLat Query");
-		}
-		finally
-		{
+		} finally {
 			em.close();
 			emf.close();
 		}
-		return(placesList);
+		return (placesList);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -294,21 +231,16 @@ public class PlacesDao implements IPlacesDao {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ANSPersistence");
 		EntityManager em = emf.createEntityManager();
 		String query = "select s from Places s where s.longitude = :longitude";
-		try
-		{
+		try {
 			placesList = em.createQuery(query).setParameter("longitude", longitude).getResultList();
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Exception in executing getPlaceByLong Query");
-		}
-		finally
-		{
+		} finally {
 			em.close();
 			emf.close();
 		}
-		return(placesList);
+		return (placesList);
 	}
 
 	@Override
@@ -317,21 +249,17 @@ public class PlacesDao implements IPlacesDao {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ANSPersistence");
 		EntityManager em = emf.createEntityManager();
 		String query = "select s from Places s where s.latitude =:latitude AND s.longitude = :longitude";
-		try
-		{
-			place = (Places) em.createQuery(query).setParameter("latitude", lattitude).setParameter("longitude", longitude).getSingleResult();
-		}
-		catch(Exception e)
-		{
+		try {
+			place = (Places) em.createQuery(query).setParameter("latitude", lattitude)
+					.setParameter("longitude", longitude).getSingleResult();
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Exception in executing getPlaceByCategoryRating Query");
-		}
-		finally
-		{
+		} finally {
 			em.close();
 			emf.close();
 		}
-		return(place);
+		return (place);
 	}
 
 }

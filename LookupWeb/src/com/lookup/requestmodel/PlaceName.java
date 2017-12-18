@@ -1,7 +1,7 @@
 package com.lookup.requestmodel;
 
 public class PlaceName {
-	
+
 	String name;
 
 	public String getName() {

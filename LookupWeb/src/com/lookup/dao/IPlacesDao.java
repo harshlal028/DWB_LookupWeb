@@ -9,7 +9,7 @@ public interface IPlacesDao {
 	List<Places> getAllPlaces() throws IllegalStateException;
 
 	long getPlacesCount() throws IllegalStateException;
-	
+
 	public Places getPlaceByName(String name) throws IllegalStateException;
 
 	List<Places> getPlaceByCategory(String category) throws IllegalStateException;

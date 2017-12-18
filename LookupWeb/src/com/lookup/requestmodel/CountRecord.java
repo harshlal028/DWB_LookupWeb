@@ -1,7 +1,7 @@
 package com.lookup.requestmodel;
 
 public class CountRecord {
-	
+
 	int count;
 
 	public int getCount() {
